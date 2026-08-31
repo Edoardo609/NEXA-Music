@@ -1,0 +1,21 @@
+name = "NEXA Music"
+
+[auth]
+enabled = true
+providers = ["email"]
+
+[db.tables.user_profiles]
+read = "own"
+write = "own"
+
+[[secret]]
+key = "OPENROUTER_API_KEY"
+required = true
+expose = true
+description = "OpenRouter API key used only by the server for NEXA AI."
+
+[[secret]]
+key = "YOUTUBE_API_KEY"
+required = true
+expose = true
+description = "YouTube Data API v3 key used only by the server for NEXA Music search."

@@ -1,0 +1,25 @@
+/* Mobile fit only: preserve the existing NEXA Music interface. */
+@media (max-width: 850px){
+  header{gap:8px;padding:12px 10px;align-items:center}
+  header>div:first-child{min-width:0;flex:0 0 auto;max-width:34vw}
+  header h1{font-size:18px;white-space:normal;overflow:visible;text-overflow:clip;line-height:1.08;overflow-wrap:anywhere}.greetingName{display:inline-block;max-width:100%;overflow-wrap:anywhere}
+  header p{display:none}
+  .musicSearch{min-width:0;max-width:none;flex:1;margin-left:0;gap:5px}
+  .musicSearch input{min-width:0;width:100%;padding:9px 10px;font-size:13px}
+  .musicSearch .micBtn{width:36px;height:36px;min-width:36px;padding:0;font-size:16px}
+  .musicSearch .primary{width:36px;height:36px;min-width:36px;padding:0;font-size:16px}
+  .profile{width:38px;height:38px;min-width:38px}
+  #globalTimer{display:none!important}
+  #aiform{display:flex;gap:6px;align-items:center}
+  #aip{min-width:0;width:100%;font-size:14px;padding:11px 12px}
+  #aiform .micBtn{width:38px;height:38px;min-width:38px;padding:0}
+  #aiform .primary{min-width:58px;padding:10px 11px}
+}
+@media (max-width:480px){
+  header{padding:10px 8px}
+  header>div:first-child{max-width:28vw}
+  header h1{font-size:16px}
+  .musicSearch input{font-size:12px;padding:8px 9px}
+  .musicSearch .micBtn,.musicSearch .primary{width:34px;height:34px;min-width:34px}
+  .profile{width:34px;height:34px;min-width:34px}
+}

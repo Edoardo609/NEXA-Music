@@ -1,0 +1,6 @@
+{
+  "appId": "com.nexa.music",
+  "appName": "NEXA Music",
+  "webDir": "public",
+  "bundledWebRuntime": false
+}

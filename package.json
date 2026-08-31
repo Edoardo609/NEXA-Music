@@ -1,0 +1,21 @@
+{
+  "name": "nexa-music",
+  "version": "1.0.0",
+  "private": true,
+  "description": "NEXA Music offline Capacitor app",
+  "scripts": {
+    "cap:prepare": "node -e \"const fs=require('fs'); fs.copyFileSync('public/capacitor.config.json','capacitor.config.json'); fs.copyFileSync('public/index.html','index.html')\",
+    "cap:init": "npm run cap:prepare && cap init \"NEXA Music\" com.nexa.music --web-dir public",
+    "cap:add:android": "npm run cap:prepare && cap add android",
+    "cap:sync": "npm run cap:prepare && cap sync android",
+    "cap:open:android": "cap open android",
+    "cap:run:android": "npm run cap:prepare && cap run android"
+  },
+  "dependencies": {
+    "@capacitor/core": "^7.4.3",
+    "@capacitor/android": "^7.4.3"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^7.4.3"
+  }
+}
