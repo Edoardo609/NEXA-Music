@@ -1,0 +1,31 @@
+workflows:
+  android-html-app:
+    name: NEXA Music Offline
+    max_build_duration: 15
+    instance_type: mac_mini_m1
+    environment:
+      groups:
+        - ionic-credentials
+      node: latest
+      java: 17
+    triggering:
+      events:
+        - push
+    scripts:
+      - name: Build Cordova APK
+        script: |
+          npm install -g cordova
+          mkdir -p workspace
+          cp -R * workspace/ || true
+          rm -rf workspace/nexa-app workspace/workspace || true
+          rm -f workspace/codemagic.yaml workspace/icon.png || true
+          cordova create nexa-app com.edoardo.nexamusic "NEXA Music"
+          cd nexa-app
+          rm -rf www/*
+          cp -R ../workspace/* www/ || true
+          if [ -f "../icon.png" ]; then cp ../icon.png www/icon.png; fi
+          echo '<widget id="com.edoardo.nexamusic" version="1.0.0" xmlns="http://w3.org" xmlns:cdv="http://apache.org"><name>NEXA Music</name><description>NEXA Music Offline App</description><author>Edoardo</author><content src="index.html" /><access origin="*" /><allow-navigation href="*" /><platform name="android"><icon src="www/icon.png" /></platform></widget>' > config.xml
+          cordova platform add android --noscript
+          cordova build android --debug --device
+    artifacts:
+      - nexa-app/platforms/android/app/build/outputs/apk/debug/*.apk
